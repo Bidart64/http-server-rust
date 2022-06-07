@@ -1,5 +1,5 @@
+#![allow(unused_variables)]
 use server::Server;
-use http::{Request, Method};
 
 mod http;
 mod server;
