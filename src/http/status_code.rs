@@ -1,4 +1,4 @@
-use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
+use std::fmt::{Display, Formatter, Result as FmtResult};
 
 #[derive(Copy, Clone, Debug)]
 pub enum StatusCode {
@@ -8,17 +8,17 @@ pub enum StatusCode {
 }
 
 impl StatusCode {
-  pub fn reason_phrase(&self) -> &str {
-    match self {
-      Self::Ok => "Ok",
-      Self::BadRequest => "Bad Request",
-      Self::NotFound => "Not Found",
+    pub fn reason_phrase(&self) -> &str {
+        match self {
+            Self::Ok => "Ok",
+            Self::BadRequest => "Bad Request",
+            Self::NotFound => "Not Found",
+        }
     }
-  }
 }
 
 impl Display for StatusCode {
-  fn fmt(&self, f: &mut Formatter) -> FmtResult {
-    write!(f, "{}", *self as u16)
-  }
+    fn fmt(&self, f: &mut Formatter) -> FmtResult {
+        write!(f, "{}", *self as u16)
+    }
 }
