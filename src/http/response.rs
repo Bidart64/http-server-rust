@@ -14,7 +14,7 @@ impl Response {
     }
 
     pub fn send(&self, stream: &mut impl Write) -> IoResult<()> {
-        let body = match &self.body {
+        let body: &str = match &self.body {
             Some(b) => b,
             None => "",
         };

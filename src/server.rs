@@ -24,7 +24,7 @@ impl Server {
     pub fn run(self, mut handler: impl Handler) {
         println!("Listening on {}", self.addr);
 
-        let listener = TcpListener::bind(&self.addr).unwrap();
+        let listener: TcpListener = TcpListener::bind(&self.addr).unwrap();
 
         loop {
             match listener.accept() {
@@ -34,7 +34,7 @@ impl Server {
                         Ok(_) => {
                             println!("Received a request: {}", String::from_utf8_lossy(&buffer));
 
-                            let response = match Request::try_from(&buffer[..]) {
+                            let response: Response = match Request::try_from(&buffer[..]) {
                                 Ok(request) => handler.handle_request(&request),
                                 Err(e) => handler.handle_bad_request(&e),
                             };
