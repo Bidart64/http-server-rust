@@ -1,4 +1,4 @@
-#![allow(unused_variables)]
+#![allow(dead_code)]
 use server::Server;
 use std::env;
 use website_handler::WebsiteHandler;
